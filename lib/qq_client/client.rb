@@ -3,7 +3,7 @@ require "rest-client"
 module QqClient
 	class Client
 		attr_reader :oauth
-
+		
 		def initialize(access_token)
 			@oauth = Oauth.new(access_token)
 		end
