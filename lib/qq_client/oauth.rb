@@ -21,10 +21,10 @@ module QqClient
       JSON.parse RestClient.post(api_url(path), parameters)
     end
 
-    def get_uid(parameters = {})
-      parameters.merge!(access_token: @access_token, oauth_consumer_key: @app_key, :format => 'json' )
-      JSON.parse RestClient.get(api_url("oauth2.0/me"), :params => parameters)
-    end
+    # def get_uid(parameters = {})
+    #   parameters.merge!(access_token: @access_token, oauth_consumer_key: @app_key, :format => 'json' )
+    #   JSON.parse RestClient.get(api_url("oauth2.0/me"), :params => parameters)
+    # end
 
     ######################################################
     #

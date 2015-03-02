@@ -37,7 +37,7 @@ module QqClient
 
 		def get_uid
 			default_params = { :format => 'json' }
-			@oauth.get mil, "oauth2.9/me", default_params
+			@oauth.get nil, "oauth2.9/me", default_params
 		end	
 
 	end
