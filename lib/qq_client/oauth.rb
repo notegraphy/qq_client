@@ -57,7 +57,7 @@ module QqClient
       parameters.each do |p|
         sub_str = (str.empty?) ? "#{p[0]}=#{p[1]}" : "&#{p[0]}=#{p[1]}"
         str = str + sub_str
-      end  
+      end
       "#{api_url(path)}?#{str}"
     end
 
