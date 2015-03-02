@@ -10,17 +10,21 @@ module QqClient
 
 		################# API
 
+		# Get Tencent Weibo user's login information.
+		# More info (http://wiki.connect.qq.com/get_info)
 		def get_info(uid, options = {})
 			@oauth.get uid, "user/get_info", options
 		end
 
-		#发表一条微博信息到腾讯微博
+		# Published a microblogging message (plain text) to the Tencent microblogging platforms.
+		# More info (http://wiki.connect.qq.com/add_t)
 		def add_t(uid, content, options = {})
 			default_params = { :content => content }
 			@oauth.post uid, "t/add_t", default_params.merge(options)
 		end
 
-		#上传图片并发表消息到腾讯微博
+		# Upload a picture and posted a message on the Tencent microblogging platforms.
+		# More info (http://wiki.connect.qq.com/add_pic_t)
 		def add_pic_t(uid, content, pic, options = {})
 			default_params = { :content => content,:pic => pic }
 			@oauth.post uid, "t/add_pic_t", default_params.merge(options)
