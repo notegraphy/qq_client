@@ -6,7 +6,7 @@ module QqClient
     API_URL = "https://graph.qq.com/"
 
     def initialize(access_token)
-      config = Qq::Config::load_config
+      config = Qq::Config::load_config(nil, nil, nil)
       @app_key = config.app_key
       @access_token = access_token
     end
