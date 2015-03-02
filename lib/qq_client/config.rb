@@ -5,11 +5,10 @@ module QqClient
     class << self
       attr_reader :app_key, :app_secret, :redirect_uri
 
-      filename = "#{Rails.root}/config/initializers/qq_client_config.rb"
-
       def load_config(app_key, app_secret, redirect_uri)
+        filename = "#{Rails.root}/config/initializers/qq_client_config.rb"
         if app_key.nil? || app_secret.nil? || redirect_uri.nil?
-          return unless self.check_config_file
+          return unless self.check_config_file(filename)
           require filename 
           #@app_key = (app_key.nil?) ? QQ_CONNECT_API_KEY : app_key
           #@app_secret = (app_secret.nil?) ? QQ_CONNECT_API_SECRET : app_secret
@@ -20,7 +19,7 @@ module QqClient
         end
       end
 
-      def check_config_file
+      def check_config_file(filename)
         true
         unless File.exist?(filename)
           puts "|>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
