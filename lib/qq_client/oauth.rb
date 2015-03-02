@@ -22,6 +22,7 @@ module QqClient
     end
 
     def get_uid(path, parameters = {})
+      parameters.merge!(access_token: @access_token,oauth_consumer_key: @app_key)
       callback_function = RestClient.get(get_uid_url(path, parameters))
       callback_function.match(/"openid":([^\/.]*)$/).to_a.second.split('"').second
     end
@@ -54,9 +55,10 @@ module QqClient
     def get_uid_url(path, parameters)
       str = ""
       parameters.each do |p|
-        str = str + "#{p[0]}=#{p[1]}"
+        sub_str = (str.empty?) ? "#{p[0]}=#{p[1]}" : "&#{p[0]}=#{p[1]}"
+        str = str + sub_str
       end  
-      "#{api_url(path)}?#{str}"  
+      "#{api_url(path)}?#{str}"
     end
 
   end
