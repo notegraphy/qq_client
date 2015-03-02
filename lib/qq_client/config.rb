@@ -5,7 +5,7 @@ module QqClient
     class << self
       attr_reader :app_key, :app_secret, :redirect_uri
 
-      @filename = "#{Rails.root}/config/initializers/qq_client_config.rb"
+      filename = "#{Rails.root}/config/initializers/qq_client_config.rb"
 
       def load_config(app_key, app_secret, redirect_uri)
         if app_key.nil? || app_secret.nil? || redirect_uri.nil?
@@ -22,7 +22,7 @@ module QqClient
 
       def check_config_file
         true
-        unless File.exist?(@filename)
+        unless File.exist?(filename)
           puts "|>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
           puts "|"
           puts "Please configure qq app_id app_key redirect_uri in #{filename}."
