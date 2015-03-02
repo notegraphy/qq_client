@@ -59,6 +59,11 @@ You must have the uid before. This elemtn is provided during the oauth flow.
 # Building the client for this spsecific user
 client = QqClient::Client.new(access_token)
 
+# Get the user uid
+# More info (http://wiki.connect.qq.com/%E5%BC%80%E5%8F%91%E6%94%BB%E7%95%A5_client-side)
+me = client.oauth.get_uid
+uid = me[:openid]
+
 # Get Tencent Weibo user's login information.
 # More info (http://wiki.connect.qq.com/get_info)
 user_info = client.get_info(uid)

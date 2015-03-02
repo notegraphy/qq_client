@@ -35,5 +35,9 @@ module QqClient
 			@oauth.post uid, "blog/add_one_blog", params
 		end
 
+		def get_uid
+			@oauth.get mil, "oauth2.9/me", {:format => 'json'}}
+		end	
+
 	end
 end
