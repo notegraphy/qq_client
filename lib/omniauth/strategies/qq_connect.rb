@@ -7,7 +7,8 @@ require "omniauth-oauth2"
 module OmniAuth
   module Strategies
     class QqConnect < OmniAuth::Strategies::OAuth2
- 
+      DEFAULT_SCOPE = 'get_user_info, get_other_info'
+      
       option :name, 'qq_connect'
  
       option :client_options, {
@@ -22,10 +23,11 @@ module OmniAuth
       }
  
       option :authorize_params, {
-        :response_type => "code"
+        :response_type => "code",
+        :scope => DEFAULT_SCOPE
       }
  
-      option :authorize_options, []
+      option :authorize_options, [:scope]
       option :token_params,      {
         :grant_type => "authorization_code",
         :parse => :query,
