@@ -31,9 +31,9 @@ Example:
 
 ```ruby
 Rails.application.config.after_initialize do
-  QQ_CONNECT_API_KEY = #{API Key} unless defined?(QQ_CONNECT_API_KEY)
-  QQ_CONNECT_API_SECRET = #{API Secret} unless defined?(QQ_CONNECT_API_SECRET)
-  QQ_CONNECT_REDIRECT_URI = #{Callback redirect url} unless defined?(QQ_CONNECT_REDIRECT_URI)
+  QQ_CONNECT_API_KEY = {API Key} unless defined?(QQ_CONNECT_API_KEY)
+  QQ_CONNECT_API_SECRET = {API Secret} unless defined?(QQ_CONNECT_API_SECRET)
+  QQ_CONNECT_REDIRECT_URI = {Callback redirect url} unless defined?(QQ_CONNECT_REDIRECT_URI)
 
   QqClient::Config.load_config(QQ_CONNECT_API_KEY, QQ_CONNECT_API_SECRET, QQ_CONNECT_REDIRECT_URI)
 end
