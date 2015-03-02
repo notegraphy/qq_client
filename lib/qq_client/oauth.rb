@@ -22,8 +22,8 @@ module QqClient
     end
 
     def get_uid(path, parameters = {})
-      parameters.merge!(access_token: @access_token, oauth_consumer_key: @app_key, :format => 'json' )
-      JSON.parse RestClient.get(api_url(path), :params => parameters)
+      callback_function = RestClient.get(get_uid_url(path, parameters))
+      callback_function.match(/"openid":([^\/.]*)$/).to_a.second.split('"').second
     end
 
     ######################################################
@@ -49,6 +49,14 @@ module QqClient
     def api_url(path)
       path = path.gsub /^\//, ""
       "#{API_URL}#{path}"
+    end
+
+    def get_uid_url(path, parameters)
+      str = ""
+      parameters.each do |p|
+        str = str + "#{p[0]}=#{p[1]}"
+      end  
+      "#{api_url(path)}?#{str}"  
     end
 
   end
