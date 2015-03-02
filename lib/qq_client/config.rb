@@ -10,12 +10,12 @@ module QqClient
         if app_key.nil? || app_secret.nil? || redirect_uri.nil?
           return unless self.check_config_file(filename)
           require filename 
-          #@app_key = (app_key.nil?) ? QQ_CONNECT_API_KEY : app_key
-          #@app_secret = (app_secret.nil?) ? QQ_CONNECT_API_SECRET : app_secret
-          #@redirect_uri = (redirect_uri.nil?) ? QQ_CONNECT_REDIRECT_URI : redirect_uri
-          @app_key = (app_key.nil?) ? nil : app_key
-          @app_secret = (app_secret.nil?) ? nil : app_secret
-          @redirect_uri = (redirect_uri.nil?) ? nil : redirect_uri
+          @app_key = (app_key.nil?) ? QQ_CONNECT_API_KEY : app_key
+          @app_secret = (app_secret.nil?) ? QQ_CONNECT_API_SECRET : app_secret
+          @redirect_uri = (redirect_uri.nil?) ? QQ_CONNECT_REDIRECT_URI : redirect_uri
+          # @app_key = (app_key.nil?) ? nil : app_key
+          # @app_secret = (app_secret.nil?) ? nil : app_secret
+          # @redirect_uri = (redirect_uri.nil?) ? nil : redirect_uri
         end
       end
 
