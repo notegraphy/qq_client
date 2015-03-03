@@ -13,7 +13,9 @@ module QqClient
 		# Get Tencent Weibo user's login information.
 		# More info (http://wiki.connect.qq.com/get_info)
 		def get_info(uid, options = {})
-			@oauth.post uid, "user/get_info", options
+			data = @oauth.post uid, "user/get_info", options
+			data['data']['openid'] = uid
+			data
 		end
 
 		# Published a microblogging message (plain text) to the Tencent microblogging platforms.
