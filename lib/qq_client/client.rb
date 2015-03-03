@@ -28,7 +28,7 @@ module QqClient
 		# Upload a picture and posted a message on the Tencent microblogging platforms.
 		# More info (http://wiki.connect.qq.com/add_pic_t)
 		def add_pic_t(uid, content, pic, options = {})
-			default_params = { :content => content,:pic => pic }
+			default_params = { :content => content, :pic => pic, :multipart => true }
 			@oauth.post uid, "t/add_pic_t", default_params.merge(options)
 		end
 
