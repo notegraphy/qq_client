@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.description     = "A qq client for oath2 and API with a omniauth strategie"
   s.files           = `git ls-files`.split($\)
   s.require_paths   = ["lib"]
-  s.add_dependency 'rest-client', '~> 0'
+  s.add_dependency 'rest-client', '~> 1'
   s.homepage        = 'http://rubygems.org/gems/qq_client'
   s.license         = 'MIT'
 end
